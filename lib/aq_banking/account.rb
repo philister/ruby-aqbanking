@@ -1,7 +1,8 @@
 
 module AqBanking
   class Account
-    ACCOUNTS = YAML.load_file(File.join(File.dirname(__FILE__), '..','..', 'config', 'accounts.yaml')) unless defined? ACCOUNTS
+    ACCOUNTS = YAML.load_file(File.join(Rails.root, 'config', 'accounts.yaml')) unless defined? ACCOUNTS
+      
     attr_accessor :account_id, :bank_code, :user_id, :customer_id, :user_name, :server_url, :hbci_version, :pin
 
 

@@ -32,7 +32,7 @@ module AqBanking
     end
 
     def process_balance
-      data = CSV.open('result.csv',"r","\t").first
+      data = CSV.open('result.csv',"r",col_sep: "\t").first
       File.delete("result.csv")
       File.delete("result.ctx")
       data[7].to_f
@@ -43,7 +43,7 @@ module AqBanking
     end
 
     def process_transactions
-      data = CSV.open('result.csv',"r",";")
+      data = CSV.open('result.csv',"r",col_sep: ";")
       File.delete("result.csv")
       File.delete("result.ctx")
       header = data.shift.map do |h|

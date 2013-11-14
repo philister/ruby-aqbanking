@@ -14,8 +14,10 @@ module AqBanking
     end
 
 
-    def self.list_balance
-      system(self.list_balance_cmd)
+    def self.list_balance(account)
+      cmd = self.list_balance_cmd
+      puts "cmd: " + cmd
+      system(cmd)
     end
 
     def self.request_balance(account)
@@ -24,6 +26,7 @@ module AqBanking
     def self.request_transactions(account,from=nil,to=nil)
       system(self.request_transactions_cmd(account,from,to))
     end
+
     def self.process_csv(account)
       system(self.process_csv_cmd(account))
     end
@@ -35,7 +38,9 @@ module AqBanking
     end
 
     def self.request_balance_cmd(account)
-      self.basic_request_cmd(account) + " --balance"
+      cmd = self.basic_request_cmd(account) + " --balance"
+      puts cmd
+     return cmd
     end
 
     def self.request_transactions_cmd(account,from=nil,to=nil)

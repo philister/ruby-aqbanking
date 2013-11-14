@@ -13,6 +13,19 @@ module AqBanking
       end
     end
 
+    def hash_string
+      all = local_bank_code.to_s + local_account_number.to_s + remote_bank_code.to_s + remote_account_number.to_s + date.to_s + valuta_date.to_s + amount_cent.to_s + local_name.to_s + remote_name.to_s + purpose.to_s + category.to_s + currency.to_s
+      Digest::MD5.hexdigest(all)
+    end
+
+    def amount_cent
+      (amount * 100).to_i
+    end
+
+    def amount_euro
+      amount
+    end
+
   end
 end
 
