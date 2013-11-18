@@ -103,7 +103,7 @@ module AqBanking
       cmd << " -b #{account.bank_code} -u #{account.user_id}"
       cmd << " -c #{account.customer_id}" if account.customer_id
       cmd << " -N \"#{account.user_name}\"" if account.user_name
-      cmd << " --hbciversion=#{account.hbci_version || 220}"
+      cmd << " --hbciversion=#{account.hbci_version || 300}"
       cmd << " -s #{account.server_url}"
     end
 
